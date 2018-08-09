@@ -1,0 +1,65 @@
+{
+    "name": "px-to-vw",
+    "displayName": "px-to-vw",
+    "description": "将px转化为vw",
+    "version": "0.0.1",
+    "publisher": "song",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.pxToVw",
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "configuration": {
+            "title": "Px to rem configuration",
+            "properties": {
+                "px-to-vw.px-per-vw": {
+                    "type": "number",
+                    "default": 7.5,
+                    "description": "1vw对应的像素"
+                },
+                "px-to-vw.number-of-decimals-digits": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "转化时最多保留的小数位数"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "extension.pxToVw",
+                "title": "px to vw"
+            },
+            {
+                "command": "extension.sayHello",
+                "title": "hello"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.pxToVw",
+                "key": "Alt+w"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
